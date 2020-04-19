@@ -1,0 +1,31 @@
+.stars_container {
+  position: relative;
+  width: 100px;
+  height: 20px;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  svg {
+    width: 100px;
+    height: 20px;
+  }
+}
+
+.stars_full {
+  @extend .stars;
+  width: 0;
+  overflow: hidden;
+  polygon {
+    fill: #5b80d8;
+  }
+}
+
+.stars_empty {
+  @extend .stars;
+  polygon {
+    stroke: #5b80d8;
+  }
+}
