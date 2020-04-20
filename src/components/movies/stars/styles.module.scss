@@ -19,13 +19,13 @@
   width: 0;
   overflow: hidden;
   polygon {
-    fill: #5b80d8;
+    fill: rgb(83, 83, 83);
   }
 }
 
 .stars_empty {
   @extend .stars;
   polygon {
-    stroke: #5b80d8;
+    stroke: rgb(83, 83, 83);
   }
 }

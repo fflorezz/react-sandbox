@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { MoviesContext } from "../../../context/movies.contex";
+
+import { searchbar_container } from "./search-bar.module.scss";
 
 const SearchBar = () => {
   const [movieSearch, setMovieSearch] = useState("");
-  const [movies, setMovies] = useState([]);
+
+  const { movies, setMovies } = useContext(MoviesContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,8 +22,10 @@ const SearchBar = () => {
           },
         }
       );
+
       setMovies(response.data.results);
       console.log(response.data.results);
+      setMovieSearch("");
     } catch (error) {
       console.log(error);
     }
@@ -28,15 +34,18 @@ const SearchBar = () => {
   const handleOnChange = (e) => {
     setMovieSearch(e.target.value);
   };
+
   return (
-    <div>
+    <div className={searchbar_container}>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleOnChange} />
-        <button>Search</button>
+        <input
+          type="text"
+          onChange={handleOnChange}
+          value={movieSearch}
+          placeholder="Search for a movie"
+        />
+        <button>SEARCH</button>
       </form>
-      {movies.map((movie) => (
-        <h2>{movie.title}</h2>
-      ))}
     </div>
   );
 };

@@ -5,13 +5,14 @@ import "./App.css";
 // import CardCssModules from "./components/css-modules/card-css-modules.component";
 // import CardEmotion from "./components/emotion/card-emotion";
 // import Stars from "./components/stars/stars.component";
-import SearchBar from "./components/movies/search-bar/search-bar.component";
+import { MoviesProvider } from "./context/movies.contex";
+import MoviePage from "./components/movies/movie-page/movie-page.component";
 
 function App() {
   return (
-    <div>
-      <SearchBar />
-    </div>
+    <MoviesProvider>
+      <MoviePage />
+    </MoviesProvider>
   );
 }
 
