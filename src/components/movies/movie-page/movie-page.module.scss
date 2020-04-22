@@ -1,4 +1,13 @@
-.page_container {
+.page_body {
+  height: 100;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(157, 75, 199, 1) 11.2%,
+    rgba(119, 81, 204, 1) 83.1%
+  );
+}
+
+.container {
   padding: 50px;
   width: 100vw;
   height: 100vh;

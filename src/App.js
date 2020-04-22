@@ -1,18 +1,23 @@
 import React from "react";
-import "./App.css";
-// import Prueba01 from "./components/scss-component/prueba-01.compoent";
-// import CardStyled from "./components/styled-components/card-styled";
-// import CardCssModules from "./components/css-modules/card-css-modules.component";
-// import CardEmotion from "./components/emotion/card-emotion";
-// import Stars from "./components/stars/stars.component";
-import { MoviesProvider } from "./context/movies.contex";
+import { Switch, Route, Link, useLocation } from "react-router-dom";
+
 import MoviePage from "./components/movies/movie-page/movie-page.component";
 
-function App() {
+import "./App.scss";
+import Home from "./components/home/home.component";
+import CssPage from "./components/css-in-js/css-page/css-page.component";
+
+function App(props) {
+  const location = useLocation();
   return (
-    <MoviesProvider>
-      <MoviePage />
-    </MoviesProvider>
+    <div>
+      {location.pathname === "/" ? null : <Link to="/">Home</Link>}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/movies" component={MoviePage} />
+        <Route path="/css-page" component={CssPage} />
+      </Switch>
+    </div>
   );
 }
 

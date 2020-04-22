@@ -4,10 +4,10 @@ import { MoviesContext } from "../../../context/movies.contex";
 
 import { searchbar_container } from "./search-bar.module.scss";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [movieSearch, setMovieSearch] = useState("");
 
-  const { movies, setMovies } = useContext(MoviesContext);
+  const { setMovies } = useContext(MoviesContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,6 @@ const SearchBar = () => {
       );
 
       setMovies(response.data.results);
-      console.log(response.data.results);
       setMovieSearch("");
     } catch (error) {
       console.log(error);

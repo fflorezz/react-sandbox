@@ -3,8 +3,10 @@ import MovieCard from "../movie-card/movie-card.component";
 
 import { list_container } from "./movie-list.module.scss";
 import { MoviesContext } from "./../../../context/movies.contex";
+import { Route, BrowserRouter } from "react-router-dom";
 
-const MovieList = () => {
+const MovieList = (props) => {
+  console.log(props);
   const { movies } = useContext(MoviesContext);
   return (
     <div className={list_container}>
